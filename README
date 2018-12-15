@@ -1,0 +1,15 @@
+# LaTeX Makefile
+Useful makefile for (relatively) big LaTeX projects with automatic generation of graphics from SVG and TEX files (i.e. Inkscape or Circuitikz documents).
+Can be launched from any IDE (like TeXStudio) with small set-up.
+
+## Usage
+1. Create a project folder and put makefile in it.
+2. Launch `$ make tree` to create folder tree
+3. Put main document in project root and call it main.tex (or manually edit makefile)
+4. Put raster images in `img/rasters`
+5. Put image projects in `img/originals` (i.e. .SVG, .TEX, ...). Note: for .TEX images is suggested the standalone document class.
+6. Do `$ make` and wait. You'll find the document in `build/main.pdf`
+
+## Further improvements
+* generate raster files from .xcf GIMP files
+* adapt to work with windows
