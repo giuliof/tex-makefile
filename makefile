@@ -20,11 +20,14 @@ vpath %.pdf $(VEC_DIR)
 
 ### Select all raster ###
 RAST_DIR = ./img/rasters
-RASTF  = $(wildcard $(RAST_DIR)/*)
+RASTF    = $(wildcard $(RAST_DIR)/*)
 
 ### TEX files ###
-TEX_DIR = ./tex
-TEX     = $(notdir $(wildcard $(TEX_DIR)/*.tex))
+TEX_DIR   = ./tex
+# TEX_DIR+= ./antani
+# ...
+
+TEX       = $(foreach dir,$(TEX_DIR),$(wildcard $(dir)/*.tex))
 
 vpath %.tex $(TEX_DIR)
 
@@ -49,11 +52,12 @@ vectors: $(PDF)
 	@inkscape -z -D --file=$^ --export-pdf=$(VEC_DIR)/$@ > /dev/null
 
 tree:
-	mkdir -p build
 	mkdir -p $(VEC_DIR)
 	mkdir -p $(ORG_DIR)
 	mkdir -p $(RAST_DIR)
 	mkdir -p $(TEX_DIR)
+	mkdir -p build
+	cd build && mkdir -p $(TEX_DIR)
 	
 clean:
 	rm -rf build
