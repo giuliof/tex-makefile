@@ -13,7 +13,7 @@ Can be launched from any IDE (like TeXstudio) with small set-up.
 
 ## Configuration for TeXstudio
 1. Open settings (Option > Configure TeXstudio);
-2. In Build menu add new user command (writing `make | txs:///view`), in additional paths add `build` folder for log and PDF files. Then save;
+2. In Build menu add new user command (writing `make build/?m.pdf | txs:///view`), in additional paths add `build` folder for log and PDF files. Then save;
 3. Open again settings. In Shortcuts search for user command in Menus>Tools>User then bind with a custom shortkey
 4. Save, close TeXstudio.
 

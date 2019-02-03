@@ -33,11 +33,11 @@ vpath %.tex $(TEX_DIR)
 
 all: build/main.pdf vectors
 
-build/main.pdf: main.tex $(RASTF) $(TEX) $(PDF) makefile
+build/%.pdf: %.tex $(RASTF) $(TEX) $(PDF) makefile
 	@mkdir -p build
 	@if [ -t 1 ]; then echo -e "\033[1;33m[Mashup      ]\033[0m main.tex"; else echo "Mashup"; fi
-	@pdflatex -output-directory build -synctex=1 -interaction=nonstopmode main.tex > /dev/null
-	@pdflatex -output-directory build -synctex=1 -interaction=nonstopmode main.tex > /dev/null
+	@pdflatex -output-directory build -synctex=1 -interaction=nonstopmode $< > /dev/null
+	@pdflatex -output-directory build -synctex=1 -interaction=nonstopmode $< > /dev/null
 
 vectors: $(PDF)
 
